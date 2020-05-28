@@ -25,6 +25,9 @@
     "angular-libs-e2e": {
       "tags": [],
       "implicitDependencies": ["angular-libs"]
+    },
+    "datagrid": {
+      "tags": []
     }
   }
 }

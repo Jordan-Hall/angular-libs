@@ -28,6 +28,9 @@
     },
     "datagrid": {
       "tags": []
+    },
+    "resize": {
+      "tags": []
     }
   }
 }

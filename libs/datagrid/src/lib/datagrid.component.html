@@ -1,0 +1,16 @@
+<table>
+    <thead>
+        <tr>
+          <th *ngFor="let cell of header.cells">
+            <ng-container [ngTemplateOutlet]="cell.template"></ng-container>
+          </th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows">
+        <td *ngFor="let cell of row.cells">
+          <ng-container [ngTemplateOutlet]="cell.template"></ng-container>
+        </td>
+      </tr>
+    </tbody>
+</table>

@@ -1,5 +1,7 @@
 # AngularLibs
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f89acc7f41d34bc58337f8992162e803)](https://app.codacy.com/manual/nukezilla/angular-libs?utm_source=github.com&utm_medium=referral&utm_content=Jordan-Hall/angular-libs&utm_campaign=Badge_Grade_Settings)
+
 This project was generated using [Nx](https://nx.dev).
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>

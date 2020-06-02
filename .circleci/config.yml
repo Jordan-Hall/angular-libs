@@ -1,0 +1,34 @@
+version: 2.1
+orbs:
+  heroku: circleci/heroku@1.0.1
+  node: circleci/node@3.0.0
+jobs:
+  build:
+    working_directory: ~/angular-libs
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: install-dependencies
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+            - ./node_modules
+      - run:
+          name: angular-build
+          command: yarn nx affected --target=build --base=origin/master~1 --parallel
+      - run:
+          name: angular-test
+          command: yarn nx affected --target=test --base=origin/master~1 --parallel
+      - run:
+          name: angular-lint
+          command:  yarn nx affected --target=lint --base=origin/master~1 --parallel
+workflows:
+    build:
+      jobs:
+        - build

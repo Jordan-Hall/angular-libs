@@ -7,7 +7,7 @@ import { LibertyDataGridRow } from './components/row/row.component';
     selector: 'liberty-grid',
     templateUrl: 'datagrid.component.html',
     styleUrls: ['datagrid.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class LibertyDataGrid {
     @HostBinding('attr.role')

@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@angular-libs/datagrid": ["libs/datagrid/src/index.ts"],
-      "@angular-libs/resize": ["libs/resize/src/index.ts"]
+      "@angular-libs/resize": ["libs/resize/src/index.ts"],
+      "@angular-libs/api-model": ["libs/api-model/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,35 +1,17 @@
-<liberty-grid>
-  <liberty-grid-header>
-    <div *dataGridCell resize>HEADER 1</div>
-    <div *dataGridCell resize>HEADER 2</div>
-    <div *dataGridCell resize>HEADER 3</div>
-    <div *dataGridCell resize>HEADER 4</div>
-    <div *dataGridCell resize>HEADER 5</div>
-    <div *dataGridCell resize>HEADER 6</div>
-    <div *dataGridCell resize>HEADER 7</div>
-    <div *dataGridCell resize>HEADER 8</div>
-    <div *dataGridCell resize>HEADER 9</div>
-  </liberty-grid-header>
-  <liberty-grid-row>
-    <div *dataGridCell>Body 1</div>
-    <div *dataGridCell>Body 2</div>
-    <div *dataGridCell>Body 3</div>
-    <div *dataGridCell>Body 4</div>
-    <div *dataGridCell>Body 5</div>
-    <div *dataGridCell>Body 6</div>
-    <div *dataGridCell>Body 7</div>
-    <div *dataGridCell>Body 8</div>
-    <div *dataGridCell>Body 9</div>
-  </liberty-grid-row>
-  <liberty-grid-row>
-    <div *dataGridCell>Body 1</div>
-    <div *dataGridCell>Body 2</div>
-    <div *dataGridCell>Body 3</div>
-    <div *dataGridCell>Body 4</div>
-    <div *dataGridCell>Body 5</div>
-    <div *dataGridCell>Body 6</div>
-    <div *dataGridCell>Body 7</div>
-    <div *dataGridCell>Body 8</div>
-    <div *dataGridCell>Body 9</div>
-  </liberty-grid-row>
-</liberty-grid>
+<ng-container *ngIf="columns$ | async as columns">
+  <liberty-grid>
+    <liberty-grid-header cdkDropList (cdkDropListDropped)="onDrop($event)">
+      <ng-container *ngFor="let column of columns">
+        <div *dataGridCell resize cdkDrag cdkDragLockAxis="x">{{ column.column }}</div>
+      </ng-container>
+    </liberty-grid-header>
+    <liberty-grid-row  *ngFor="let data of apiDataFacade.allApiData$ | async as list">
+      <div *dataGridCell>{{ data.id }}</div>
+      <div *dataGridCell>{{ data.name }}</div>
+      <div *dataGridCell>{{ data.address }}</div>
+      <div *dataGridCell>{{ data.country }}</div>
+      <div *dataGridCell>{{ data.postcode }}</div>
+    </liberty-grid-row>
+  </liberty-grid>
+</ng-container>
+

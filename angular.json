@@ -62,7 +62,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-libs:build"
+            "browserTarget": "angular-libs:build",
+            "proxyConfig": "apps/angular-libs/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -209,6 +210,89 @@
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
+        }
+      }
+    },
+    "datagrid-demo": {
+      "root": "apps/datagrid-demo",
+      "sourceRoot": "apps/datagrid-demo/src",
+      "projectType": "application",
+      "prefix": "datagrid-demo",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/datagrid-demo",
+            "main": "apps/datagrid-demo/src/main.ts",
+            "tsConfig": "apps/datagrid-demo/tsconfig.app.json",
+            "assets": ["apps/datagrid-demo/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/datagrid-demo/src/environments/environment.ts",
+                  "with": "apps/datagrid-demo/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "datagrid-demo:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/datagrid-demo/.eslintrc",
+            "tsConfig": [
+              "apps/datagrid-demo/tsconfig.app.json",
+              "apps/datagrid-demo/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/datagrid-demo/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/datagrid-demo/jest.config.js",
+            "tsConfig": "apps/datagrid-demo/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-model": {
+      "root": "libs/api-model",
+      "sourceRoot": "libs/api-model/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/api-model/tsconfig.lib.json",
+              "libs/api-model/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/api-model/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/api-model/jest.config.js",
+            "tsConfig": "libs/api-model/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
         }
       }
     }

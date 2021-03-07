@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"-@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/-/-/--0.0.1.tgz#db6db7cd866142880dd03e5b8781d1b4fac0e5bd"
+  integrity sha512-3HfneK3DGAm05fpyj20sT3apkNcvPpCuccOThOPdzz8sY7GgQGe0l93XH9bt+YzibcTIgUAIMoyVJI740RtgyQ==
+
 "@angular-devkit/architect@0.901.0":
   version "0.901.0"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.901.0.tgz#c660cb76e3bd35fc294d8e8578782b83157924aa"
@@ -1928,6 +1933,18 @@
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
+
+"@types/lodash.sortby@^4.7.6":
+  version "4.7.6"
+  resolved "https://registry.yarnpkg.com/@types/lodash.sortby/-/lodash.sortby-4.7.6.tgz#eed689835f274b553db4ae16a4a23f58b79618a1"
+  integrity sha512-EnvAOmKvEg7gdYpYrS6+fVFPw5dL9rBnJi3vcKI7wqWQcLJVF/KRXK9dH29HjGNVvFUj0s9prRP3J8jEGnGKDw==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*":
+  version "4.14.154"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.154.tgz#069e3c703fdb264e67be9e03b20a640bc0198ecc"
+  integrity sha512-VoDZIJmg3P8vPEnTldLvgA+q7RkIbVkbYX4k0cAVFzGAOQwUehVgRHgIr2/wepwivDst/rVRqaiBSjCXRnoWwQ==
 
 "@types/minimatch@*":
   version "3.0.3"

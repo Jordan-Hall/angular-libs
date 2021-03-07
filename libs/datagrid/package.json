@@ -1,9 +1,9 @@
 {
-  "name": "@angular-libs/datagrid",
+  "name": "@libertyware/datagrid",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^9.1.9",
-    "@angular/core": "^9.1.9"
+    "@angular/common": ">9.1.9",
+    "@angular/core": ">9.1.9"
   },
   "dependencies": {
     "tslib": "^1.10.0"

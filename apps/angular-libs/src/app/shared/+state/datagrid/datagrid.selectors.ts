@@ -26,6 +26,11 @@ export const isLoaded = createSelector(
   (state: State) => state.restored
 );
 
+export const sortBy = createSelector(
+  getDatagridState,
+  (state: State) => state.sortBy
+);
+
 export const getSelectedId = createSelector(
   getDatagridState,
   (state: State) => state.selectedId

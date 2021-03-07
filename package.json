@@ -29,6 +29,7 @@
   },
   "private": true,
   "dependencies": {
+    "-": "^0.0.1",
     "@angular/animations": "^9.1.0",
     "@angular/cdk": "^9.2.4",
     "@angular/common": "^9.1.0",
@@ -47,6 +48,7 @@
     "@ngrx/store": "9.1.0",
     "@nrwl/angular": "9.3.0",
     "core-js": "^2.5.4",
+    "lodash.sortby": "^4.7.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
@@ -69,6 +71,7 @@
     "@nrwl/node": "9.3.0",
     "@nrwl/workspace": "9.3.0",
     "@types/jest": "25.1.4",
+    "@types/lodash.sortby": "^4.7.6",
     "@types/node": "~8.9.4",
     "@typescript-eslint/eslint-plugin": "2.19.2",
     "@typescript-eslint/parser": "2.19.2",

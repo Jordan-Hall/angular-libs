@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { DatagridColumnOrder } from './datagrid.model';
+import { DatagridColumnOrder, SortBy } from './datagrid.model';
 
 
 export const updateDataGrid = createAction(
@@ -11,3 +11,8 @@ export const updateDataGrid = createAction(
 export const init = createAction(
   '[datagrid] init'
 );
+
+export const updateSorting = createAction(
+  '[datagrid] update sorting',
+  props<{ sorting: SortBy[] }>()
+)

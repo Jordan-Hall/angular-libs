@@ -1,17 +1,20 @@
-<ng-container *ngIf="columns$ | async as columns">
-  <liberty-grid>
-    <liberty-grid-header cdkDropList (cdkDropListDropped)="onDrop($event)">
-      <ng-container *ngFor="let column of columns">
-        <div *dataGridCell resize cdkDrag cdkDragLockAxis="x">{{ column.column }}</div>
-      </ng-container>
-    </liberty-grid-header>
-    <liberty-grid-row  *ngFor="let data of apiDataFacade.allApiData$ | async as list">
-      <div *dataGridCell>{{ data.id }}</div>
-      <div *dataGridCell>{{ data.name }}</div>
-      <div *dataGridCell>{{ data.address }}</div>
-      <div *dataGridCell>{{ data.country }}</div>
-      <div *dataGridCell>{{ data.postcode }}</div>
-    </liberty-grid-row>
-  </liberty-grid>
-</ng-container>
+<h1>Data grid</h1>
 
+
+<h4>Sorting Array</h4>
+<p>To sort just click on the columns headers</p>
+{{ sortBy$  | async | json }}
+
+
+<liberty-grid>
+  <liberty-grid-header (cdkDropListDropped)="onDrop($event)">
+    <ng-container *ngFor="let column of columns">
+      <div (click)="sort(column.column)" *dataGridCell resize>{{ column.column }}</div>
+    </ng-container>
+  </liberty-grid-header>
+  <liberty-grid-row  *ngFor="let data of dataConent$ | async as list">
+    <ng-container *ngFor="let column of columns">
+      <div *dataGridCell resize>{{ data[column.column] }}</div>
+    </ng-container>
+  </liberty-grid-row>
+</liberty-grid>

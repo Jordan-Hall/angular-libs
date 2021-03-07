@@ -1,4 +1,4 @@
-import { Component, HostBinding, ContentChildren, QueryList, ContentChild, AfterContentInit, AfterViewInit, ChangeDetectionStrategy, OnInit } from "@angular/core";
+import { Component, HostBinding, ContentChildren, QueryList, ContentChild, AfterContentInit, AfterViewInit, ChangeDetectionStrategy, OnInit, Input, Output } from "@angular/core";
 import { LibertyDataGridHeader } from './components/header/header.component';
 import { LibertyDataGridRow } from './components/row/row.component';
 
@@ -27,5 +27,10 @@ export class LibertyDataGrid {
     private _rows: LibertyDataGridRow = null;
     get rows() {
       return this._rows || this._rowsChildren;
+    }
+
+
+    cdkDropListDropped(event) {
+      this.header.cdkDropListDropped.emit(event);
     }
 }

@@ -1,5 +1,5 @@
-import { Component, HostBinding, ContentChild, QueryList, AfterContentInit, ViewContainerRef, ElementRef, ContentChildren, forwardRef} from "@angular/core";
-import { DataGridCell } from '../../directive/header-cell.component';
+import { Component, HostBinding, QueryList, ContentChildren, Output, EventEmitter} from "@angular/core";
+import { DataGridCell } from '../../directive/data-cell.component';
 
 @Component({
     // tslint:disable-next-line: component-selector
@@ -12,4 +12,7 @@ export class LibertyDataGridHeader {
 
     @ContentChildren(DataGridCell, { descendants: true })
     public cells: QueryList<DataGridCell>;
+
+    @Output()
+    cdkDropListDropped = new EventEmitter();
 }

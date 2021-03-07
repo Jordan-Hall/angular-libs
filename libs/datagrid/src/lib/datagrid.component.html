@@ -1,7 +1,7 @@
 <table>
     <thead>
-        <tr>
-          <th *ngFor="let cell of header.cells">
+        <tr cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="cdkDropListDropped($event)">
+          <th *ngFor="let cell of header.cells" cdkDrag>
             <ng-container [ngTemplateOutlet]="cell.template"></ng-container>
           </th>
         </tr>

@@ -1,5 +1,5 @@
 import { Component, HostBinding, ContentChildren, QueryList } from "@angular/core";
-import { DataGridCell } from '../../directive/header-cell.component';
+import { DataGridCell } from '../../directive/data-cell.component';
 
 @Component({
     // tslint:disable-next-line: component-selector

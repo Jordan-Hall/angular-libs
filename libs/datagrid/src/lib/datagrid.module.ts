@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { LibertyDataGrid } from './datagrid.component';
 import { LibertyDataGridHeader } from './components/header/header.component';
 import { LibertyDataGridRow } from './components/row/row.component';
-import { DataGridCell } from './directive/header-cell.component';
-
+import { DataGridCell } from './directive/data-cell.component';
+import { DragDropModule } from '@angular/cdk/drag-drop'
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, DragDropModule],
   declarations: [
     LibertyDataGrid,
     LibertyDataGridHeader,

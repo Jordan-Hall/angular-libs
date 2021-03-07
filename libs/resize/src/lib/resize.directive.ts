@@ -1,8 +1,7 @@
-import { Directive, OnInit, NgZone, ElementRef, OnDestroy, Renderer2, Inject, Output } from "@angular/core";
+import { Directive, OnInit, NgZone, ElementRef, OnDestroy, Renderer2, Inject, Output, EventEmitter } from "@angular/core";
 import { fromEvent, Subject, Observable, combineLatest } from 'rxjs';
 import { takeUntil, map, tap,  } from 'rxjs/operators';
 import { DOCUMENT } from '@angular/common'
-import { EventEmitter } from 'events';
 
 const rezieActiveClass = 'resizer-active';
 
@@ -20,10 +19,10 @@ export class ResizeDirective implements OnInit, OnDestroy {
     return this.elementRef.nativeElement;
   }
 
-  @Output() widthChange = new EventEmitter();
+  @Output() widthChange = new EventEmitter<string>();
 
 
-  constructor(private zone: NgZone, private elementRef: ElementRef, private renderer: Renderer2, @Inject(DOCUMENT) private document: Document) {}
+  constructor(private zone: NgZone, private elementRef: ElementRef, private renderer: Renderer2, @Inject(DOCUMENT) private document) {}
 
   ngOnInit(): void {
     this.zone.runOutsideAngular(() => {
@@ -31,11 +30,15 @@ export class ResizeDirective implements OnInit, OnDestroy {
       const div = this.createResziserHandler();
 
       this.renderer.appendChild(this.element, div);
+
+
+
       this.mouseDown = fromEvent(
         div,
         'mousedown'
       ).pipe(
         takeUntil(this.onDestory),
+        tap((event) => event.stopPropagation()),
         map((event: MouseEvent) => this.element.offsetWidth - event.pageX),
         tap(() => {
           this.renderer.addClass(this.element, rezieActiveClass);

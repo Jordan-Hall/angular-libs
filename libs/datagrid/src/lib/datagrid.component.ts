@@ -1,4 +1,4 @@
-import { Component, HostBinding, ContentChildren, QueryList, ContentChild, AfterContentInit, AfterViewInit, ChangeDetectionStrategy, OnInit, Input, Output } from "@angular/core";
+import { Component, HostBinding, ContentChildren, ContentChild, ChangeDetectionStrategy } from "@angular/core";
 import { LibertyDataGridHeader } from './components/header/header.component';
 import { LibertyDataGridRow } from './components/row/row.component';
 

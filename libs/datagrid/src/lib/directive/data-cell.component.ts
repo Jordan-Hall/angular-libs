@@ -1,4 +1,4 @@
-import { Component, HostBinding, Directive, TemplateRef, ViewContainerRef, ElementRef } from "@angular/core";
+import { Directive, TemplateRef } from "@angular/core";
 
 @Directive({
     // tslint:disable-next-line: directive-selector

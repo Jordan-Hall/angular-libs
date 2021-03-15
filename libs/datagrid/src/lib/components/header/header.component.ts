@@ -1,4 +1,4 @@
-import { Component, HostBinding, QueryList, ContentChildren, Output, EventEmitter} from "@angular/core";
+import { Component, HostBinding, QueryList, Input, ContentChildren, Output, EventEmitter} from "@angular/core";
 import { DataGridCell } from '../../directive/data-cell.component';
 
 @Component({
@@ -10,9 +10,12 @@ export class LibertyDataGridHeader {
     @HostBinding('attr.role')
     role = 'rowgroup';
 
+    @Input() class = '';
+
     @ContentChildren(DataGridCell, { descendants: true })
     public cells: QueryList<DataGridCell>;
 
     @Output()
     cdkDropListDropped = new EventEmitter();
 }
+

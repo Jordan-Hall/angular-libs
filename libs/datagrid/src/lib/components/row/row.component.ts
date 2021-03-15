@@ -1,4 +1,4 @@
-import { Component, HostBinding, ContentChildren, QueryList, Input } from "@angular/core";
+import { Component, HostBinding, ContentChildren, QueryList } from "@angular/core";
 import { DataGridCell } from '../../directive/data-cell.component';
 
 @Component({
@@ -9,7 +9,7 @@ import { DataGridCell } from '../../directive/data-cell.component';
 export class LibertyDataGridRow {
     @HostBinding('attr.role')
     role = 'rowgroup';
-    @Input() class = '';
+
     @ContentChildren(DataGridCell, { descendants: true })
     public cells: QueryList<DataGridCell>;
 }

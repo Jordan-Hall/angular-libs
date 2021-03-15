@@ -1,4 +1,4 @@
-import { Directive, TemplateRef } from "@angular/core";
+import { Directive, TemplateRef, Input } from "@angular/core";
 
 @Directive({
     // tslint:disable-next-line: directive-selector
@@ -6,8 +6,8 @@ import { Directive, TemplateRef } from "@angular/core";
     exportAs: 'datagrid'
 })
 export class DataGridCell {
-
-    constructor(public template: TemplateRef<any>) {
-    }
+  @Input() class = '';
+  constructor(public template: TemplateRef<any>) {
+  }
 
 }
